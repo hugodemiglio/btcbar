@@ -21,6 +21,7 @@
 		83C3E7541859702D00FA2921 /* btclogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 83C3E7501859702D00FA2921 /* btclogo.png */; };
 		83C3E7551859702D00FA2921 /* btclogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 83C3E7511859702D00FA2921 /* btclogo@2x.png */; };
 		83C3E759185970C800FA2921 /* Icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 83C3E758185970C800FA2921 /* Icon.icns */; };
+		A104ADC81FBBFB1E00F27C14 /* FoxBitBRLFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = A104ADC71FBBFB1E00F27C14 /* FoxBitBRLFetcher.m */; };
 		B65127471A71A1BB00FB6A24 /* OKCoinUSDFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = B65127461A71A1BB00FB6A24 /* OKCoinUSDFetcher.m */; };
 		B662833B1A712EBB00520512 /* BitFinexUSDFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = B662833A1A712EBB00520512 /* BitFinexUSDFetcher.m */; };
 		B662833E1A715EFB00520512 /* WinkDexUSDFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = B662833D1A715EFB00520512 /* WinkDexUSDFetcher.m */; };
@@ -55,6 +56,8 @@
 		83C3E7511859702D00FA2921 /* btclogo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "btclogo@2x.png"; path = "Icons/btclogo@2x.png"; sourceTree = "<group>"; };
 		83C3E758185970C800FA2921 /* Icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = Icon.icns; path = ../Resources/Icon.icns; sourceTree = "<group>"; };
 		91E7C0B6B68190B81D108954 /* Pods-btcbar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-btcbar.debug.xcconfig"; path = "Pods/Target Support Files/Pods-btcbar/Pods-btcbar.debug.xcconfig"; sourceTree = "<group>"; };
+		A104ADC61FBBFB0200F27C14 /* FoxBitBRLFetcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FoxBitBRLFetcher.h; sourceTree = "<group>"; };
+		A104ADC71FBBFB1E00F27C14 /* FoxBitBRLFetcher.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FoxBitBRLFetcher.m; sourceTree = "<group>"; };
 		A5816427FA49030D15D38F06 /* libPods-btcbar.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-btcbar.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B65127451A71A1BB00FB6A24 /* OKCoinUSDFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OKCoinUSDFetcher.h; path = Fetchers/OKCoinUSDFetcher.h; sourceTree = "<group>"; };
 		B65127461A71A1BB00FB6A24 /* OKCoinUSDFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OKCoinUSDFetcher.m; path = Fetchers/OKCoinUSDFetcher.m; sourceTree = "<group>"; };
@@ -160,6 +163,8 @@
 				8317A2261F68F83E0056F110 /* KrakenUSDFetcher.m */,
 				83C3E7411859700100FA2921 /* BitStampUSDFetcher.h */,
 				83C3E7421859700100FA2921 /* BitStampUSDFetcher.m */,
+				A104ADC61FBBFB0200F27C14 /* FoxBitBRLFetcher.h */,
+				A104ADC71FBBFB1E00F27C14 /* FoxBitBRLFetcher.m */,
 				B65127451A71A1BB00FB6A24 /* OKCoinUSDFetcher.h */,
 				B65127461A71A1BB00FB6A24 /* OKCoinUSDFetcher.m */,
 				B662833C1A715EFB00520512 /* WinkDexUSDFetcher.h */,
@@ -277,13 +282,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-btcbar-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		5ED6ABBEEE578D8CEDDDB01E /* [CP] Copy Pods Resources */ = {
@@ -316,6 +324,7 @@
 				83C3E74B1859700100FA2921 /* CoinbaseUSDFetcher.m in Sources */,
 				83C3E74A1859700100FA2921 /* BittrexUSDFetcher.m in Sources */,
 				8317A2271F68F83E0056F110 /* KrakenUSDFetcher.m in Sources */,
+				A104ADC81FBBFB1E00F27C14 /* FoxBitBRLFetcher.m in Sources */,
 				830CE0A4171B6C3E00DDD525 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
